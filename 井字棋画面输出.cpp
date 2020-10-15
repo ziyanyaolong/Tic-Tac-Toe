@@ -57,6 +57,11 @@ void draw(void)
 		else
 		{
 			BeginBatchDraw();
+			if (pd_lz1 <= LZ_1_SL)
+			{
+				lizi_1(rand() % (int)windows_x_3_1, rand() % (int)windows_y_3_1);
+				lizi_1(rand() % (int)windows_x + (int)windows_x_3_2, rand() % (int)windows_y_3_1);
+			}
 			setfillcolor(BLUE);
 			if (pd_cd_1 == 1)
 			{
@@ -225,14 +230,14 @@ void draw_fbl_xz(void)
 			{
 				shuzu_fbl_2[i][j] = 1;
 				setfillstyle(BS_DIBPATTERN, NULL, &p_a);
-				fillroundrect((int)(windows_x / 12.0 * ((j * 4) + 4.7)), (int)(windows_y / 12.0 * (i + 4.7)), (int)(windows_x / 12.0 * ((j * 4) + 5.3)), (int)(windows_y / 12.0 * (i + 5.3)), (int)(30 * windows_x_bl), (int)(30 * windows_y_bl));
+				fillroundrect((int)(windows_x / 12.0 * ((double)(j * 4.0) + 4.7)), (int)(windows_y / 12.0 * (double)(i + 4.7)), (int)(windows_x / 12.0 * ((double)(j * 4.0) + 5.3)), (int)(windows_y / 12.0 * (double)(i + 5.3)), (int)(30 * windows_x_bl), (int)(30 * windows_y_bl));
 			}
 			else if (shuzu_fbl_1[i][j] == 1 && shuzu_fbl_2[i][j] == 1)
 			{
 				shuzu_fbl_2[i][j] = 0;
 				setfillstyle(BS_SOLID);
 				setfillcolor(RED);
-				fillroundrect((int)(windows_x / 12.0 * ((j * 4) + 4.7)), (int)(windows_y / 12.0 * (i + 4.7)), (int)(windows_x / 12.0 * ((j * 4) + 5.3)), (int)(windows_y / 12.0 * (i + 5.3)), (int)(30 * windows_x_bl), (int)(30 * windows_y_bl));
+				fillroundrect((int)(windows_x / 12.0 * ((double)(j * 4.0) + 4.7)), (int)(windows_y / 12.0 * (double)(i + 4.7)), (int)(windows_x / 12.0 * ((double)(j * 4.0) + 5.3)), (int)(windows_y / 12.0 * (double)(i + 5.3)), (int)(30 * windows_x_bl), (int)(30 * windows_y_bl));
 				if (i == 0 && j == 0)
 				{
 					windows_fbl_xy_hc[0] = windows_fbl_xy[0][0];

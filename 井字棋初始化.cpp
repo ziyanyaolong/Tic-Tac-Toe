@@ -45,10 +45,15 @@ void GameInit(void)
 	cd_2_qd = 0;
 	cd_sz_pd = 0;
 	pj_zcpd = 0;
+	pd_lz1 = 0;
 	setorigin(0, 0);
 	loadimage(&p_a, "./res/zhucaidan.jpg", (int)windows_x, (int)windows_y);
 	loadimage(&p_b, "./res/XXX.png", (int)windows_x_3_1, (int)windows_y_3_1);
 	loadimage(&p_c, "./res/OOO.png", (int)windows_x_3_1, (int)windows_y_3_1);
+	loadimage(&p_d, "./res/lizi_1_1.png", (int)(762.0 / 50.0 * windows_x_bl), (int)(641.0 / 50.0 * windows_y_bl));
+	loadimage(&p_e, "./res/lizi_1_2.png", (int)(762.0 / 50.0 * windows_x_bl), (int)(641.0 / 50.0 * windows_y_bl));
+	Resize(&p_d, (int)(762.0 / 50.0 * windows_x_bl), (int)(641.0 / 50.0 * windows_y_bl));
+	Resize(&p_e, (int)(762.0 / 50.0 * windows_x_bl), (int)(641.0 / 50.0 * windows_y_bl));
 	Resize(&p_a, (int)windows_x, (int)windows_y);
 	Resize(&p_b, (int)windows_x_3_1, (int)windows_y_3_1);
 	Resize(&p_c, (int)windows_x_3_1, (int)windows_y_3_1);

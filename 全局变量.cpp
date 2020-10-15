@@ -1,5 +1,5 @@
 #include<graphics.h>
-IMAGE p_a, p_b, p_c;
+IMAGE p_a, p_b, p_c, p_d, p_e;
 double pd_ms = 0;
 double pd_ms_2 = 0;
 int windows_x = 1152;
@@ -43,3 +43,4 @@ int lizi_1_x_2 = 0;
 DWORD* p_lizi_1;
 IMAGE p_lizi_2;
 bool game_start_jz = 0;
+unsigned short pd_lz1 = 0;

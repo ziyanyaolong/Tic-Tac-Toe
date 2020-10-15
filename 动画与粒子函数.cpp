@@ -15,10 +15,9 @@ void start_dh(int x, int y)
 }
 void lizi_1(int x, int y)
 {
-	graphdefaults();
-	putpixel(x, y, rand());
-	setfillcolor(getpixel(x, y));
-	solidcircle(x, y, 5);
+	++pd_lz1;
+	putimage(x, y, &p_e, NOTSRCERASE);
+	putimage(x, y, &p_d, SRCINVERT);
 }
 void lizi_2(int x, int y)
 {
