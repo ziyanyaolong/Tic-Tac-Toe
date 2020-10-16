@@ -2,6 +2,7 @@
 #include<graphics.h>
 #include<easyx.h>
 #include"qjsm.h"
+#include"struct_jgt.h"
 
 void draw(void);
 void draw_3(void);
@@ -44,7 +45,6 @@ void draw(void)
 	{
 		if (pd_ms >= 1.0)
 		{
-			BeginBatchDraw();
 			setfillcolor(RED);
 			solidrectangle(0, 0, (int)(40.0 * windows_x_bl), (int)(40.0 * windows_y_bl));
 			setfillcolor(WHITE);
@@ -52,15 +52,12 @@ void draw(void)
 			draw_3();
 			pd_ms = 2.0;
 			start = 1;
-			EndBatchDraw();
 		}
 		else
 		{
-			BeginBatchDraw();
-			if (pd_lz1 <= LZ_1_SL)
+			if (pd_lz1 <= LZ_1_DRAW_MAX)
 			{
-				lizi_1(rand() % (int)windows_x_3_1, rand() % (int)windows_y_3_1);
-				lizi_1(rand() % (int)windows_x + (int)windows_x_3_2, rand() % (int)windows_y_3_1);
+				lizi_1(p_lz1->lz1_js_x, p_lz1->lz1_js_y);
 			}
 			setfillcolor(BLUE);
 			if (pd_cd_1 == 1)
@@ -92,7 +89,6 @@ void draw(void)
 			settextcolor(RED);
 			settextstyle((int)(50.0 * windows_y_bl), (int)(25.0 * windows_x_bl), "");
 			outtextxy((int)(windows_x / 20.0), (int)(windows_y / 12.0 * 10.0), "by ×ÏÑæÒ«Áú");
-			EndBatchDraw();
 		}
 	}
 }

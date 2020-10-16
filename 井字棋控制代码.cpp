@@ -1,13 +1,14 @@
 #include<stdio.h>
 #include<graphics.h>
 #include"qjsm.h"
+#include"struct_jgt.h"
 
 int jzq(void);
 
 int jzq(void)
 {
 	unsigned short pd_lz1_2 = 0;
-	initgraph(windows_x, windows_y);
+	initgraph(windows_x, windows_y, EW_SHOWCONSOLE);
 	GameInit();
 	if (game_start_jz == 0)
 	{
@@ -27,6 +28,15 @@ int jzq(void)
 	}
 	while (1)
 	{
+		BeginBatchDraw();
+		if (pd_lz1 <= rand() % LZ_1_DRAW_MAX + LZ_1_DRAW_MIN) ++pd_lz1_2;
+		if (pd_lz1_2 > 5)
+		{
+			pd_lz1 = 0;
+			pd_lz1_2 = 0;
+			p_lz1->lz1_js_x = rand() % windows_x;
+			p_lz1->lz1_js_y = rand() % windows_y;
+		}
 		draw();
 		if (jz_pd == 1)
 		{
@@ -58,17 +68,9 @@ int jzq(void)
 				draw_2();
 			}
 			if (mouse_cd_3()) break;
-			if (pd_lz1 >= LZ_1_SL) ++pd_lz1_2;
-			if (pd_lz1_2 > 500)
-			{
-				setfillstyle(BS_DIBPATTERN, NULL, &p_a);
-				solidrectangle(0, 0, windows_x, windows_y);
-				setfillstyle(BS_SOLID);
-				pd_lz1 = 0;
-				pd_lz1_2 = 0;
-			}
 		}
-		Sleep(10);
+		Sleep(20);
+		EndBatchDraw();
 	}
 	return 0;
 }
