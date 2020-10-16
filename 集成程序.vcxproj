@@ -156,12 +156,15 @@
     <Media Include="res\菜单选项框声音.wav" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="res\lizi_1_1.png" />
+    <Image Include="res\lizi_1_2.png" />
     <Image Include="res\OOO.png" />
     <Image Include="res\XXX.png" />
     <Image Include="res\zhucaidan.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="qjsm.h" />
+    <ClInclude Include="struct_jgt.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

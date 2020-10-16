@@ -183,6 +183,7 @@ void win_2(int i)
 	{
 		settextstyle((int)(300.0 * windows_y_bl), (int)(200.0 * windows_x_bl), "");
 		outtextxy((int)(windows_x / 12.0 * 1.5), (int)(windows_y / 12.0 * 2.5), "平局！");
+		FlushBatchDraw();
 		while (mouse_test(0, windows_x, 0, windows_y) <= 1.0) Sleep(5);
 		GameInit();
 	}
@@ -190,6 +191,7 @@ void win_2(int i)
 	{
 		settextstyle((int)(200.0 * windows_y_bl), (int)(100.0 * windows_x_bl), "");
 		outtextxy((int)(windows_x / 12.0 * 1.5), (int)(windows_y / 12.0 * 3.5), "X方胜利！");
+		FlushBatchDraw();
 		while (mouse_test(0, windows_x, 0, windows_y) <= 1.0) Sleep(5);
 		GameInit();
 	}
@@ -197,6 +199,7 @@ void win_2(int i)
 	{
 		settextstyle((int)(200.0 * windows_y_bl), (int)(100.0 * windows_x_bl), "");
 		outtextxy((int)(windows_x / 12.0 * 1.5), (int)(windows_y / 12.0 * 3.5), "O方胜利！");
+		FlushBatchDraw();
 		while (mouse_test(0, windows_x, 0, windows_y) <= 1.0) Sleep(5);
 		GameInit();
 	}

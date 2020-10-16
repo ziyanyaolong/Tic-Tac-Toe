@@ -1,5 +1,6 @@
 #include<graphics.h>
-IMAGE p_a, p_b, p_c, p_d, p_e;
+#include"struct_jgt.h"
+IMAGE p_a, p_b, p_c, p_d, p_e, p_f, p_g;
 double pd_ms = 0;
 double pd_ms_2 = 0;
 int windows_x = 1152;
@@ -44,3 +45,5 @@ DWORD* p_lizi_1;
 IMAGE p_lizi_2;
 bool game_start_jz = 0;
 unsigned short pd_lz1 = 0;
+
+struct lizi_1* p_lz1 = new(struct lizi_1);
