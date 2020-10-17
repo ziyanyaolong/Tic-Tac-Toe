@@ -15,81 +15,89 @@ void draw_fbl_xz(void);
 
 void draw(void)
 {
-	if (cd_2_qd == 1)
+	while (end_jzq == 1)
 	{
-		if(cd_sz_pd == 0)
+		draw_tb = 0;
+		BeginBatchDraw();
+		lizi_1();
+		if (cd_2_qd == 1)
 		{
-			for (int i = 0; i < 3; ++i)
+			if (cd_sz_pd == 0)
 			{
-				for (int j = 0; j < 2; ++j)
+				for (int i = 0; i < 3; ++i)
 				{
-					if (shuzu_fbl_1[i][j]) shuzu_fbl_2[i][j] = 1;
-					else shuzu_fbl_2[i][j] = 0;
+					for (int j = 0; j < 2; ++j)
+					{
+						if (shuzu_fbl_1[i][j]) shuzu_fbl_2[i][j] = 1;
+						else shuzu_fbl_2[i][j] = 0;
+					}
 				}
+				cd_sz_pd = 1;
+				draw_cd_2();
+				draw_sz_zt();
+				if (cd_sz_1) cd_sz_1_1 = 1;
+				else cd_sz_1_1 = 0;
+				if (cd_sz_2) cd_sz_2_2 = 1;
+				else cd_sz_2_2 = 0;
+				if (cd_sz_3) cd_sz_3_3 = 1;
+				else cd_sz_3_3 = 0;
 			}
-			cd_sz_pd = 1;
-			draw_cd_2();
-			draw_sz_zt();
-			if (cd_sz_1) cd_sz_1_1 = 1;
-			else cd_sz_1_1 = 0;
-			if (cd_sz_2) cd_sz_2_2 = 1;
-			else cd_sz_2_2 = 0;
-			if (cd_sz_3) cd_sz_3_3 = 1;
-			else cd_sz_3_3 = 0;
-		}
-		if (cd_sz_2) draw_fbl_xz();
-		mouse_cd_sz_1_3();
-		draw_sz_1_3();
-	}
-	else
-	{
-		if (pd_ms >= 1.0)
-		{
-			setfillcolor(RED);
-			solidrectangle(0, 0, (int)(40.0 * windows_x_bl), (int)(40.0 * windows_y_bl));
-			setfillcolor(WHITE);
-			draw_get();
-			draw_3();
-			pd_ms = 2.0;
-			start = 1;
+			if (cd_sz_2) draw_fbl_xz();
+			mouse_cd_sz_1_3();
+			draw_sz_1_3();
 		}
 		else
 		{
-			if (pd_lz1 <= LZ_1_DRAW_MAX)
+			if (pd_ms >= 1.0)
 			{
-				lizi_1(p_lz1->lz1_js_x, p_lz1->lz1_js_y);
+				start = 1;
+				if (lizi1_kg_pd == 0)
+				{
+					setfillcolor(RED);
+					solidrectangle(0, 0, (int)(40.0 * windows_x_bl), (int)(40.0 * windows_y_bl));
+					setfillcolor(WHITE);
+					draw_get();
+					draw_3();
+					pd_ms = 2.0;
+				}
 			}
-			setfillcolor(BLUE);
-			if (pd_cd_1 == 1)
+			else
 			{
-				setlinecolor(RED);
+				setfillcolor(BLUE);
+				if (pd_cd_1 == 1)
+				{
+					setlinecolor(RED);
+				}
+				else setlinecolor(BLACK);
+				fillroundrect((int)windows_x_3_1, (int)(windows_y_3_2), (int)(windows_x_3_2), (int)(windows_y - (300 * windows_y_bl)), (int)(100 * windows_x_bl), (int)(100 * windows_y_bl));
+				if (pd_cd_2_2 == 1)
+				{
+					setlinecolor(RED);
+				}
+				else setlinecolor(BLACK);
+				fillroundrect((int)windows_x_3_1, (int)(windows_y_3_2 + (100 * windows_y_bl)), (int)windows_x_3_2, (int)(windows_y - (200 * windows_y_bl)), (int)(100 * windows_x_bl), (int)(100 * windows_y_bl));
+				if (pd_cd_3_3 == 1)
+				{
+					setlinecolor(RED);
+				}
+				else setlinecolor(BLACK);
+				fillroundrect((int)windows_x_3_1, (int)(windows_y_3_2 + (200 * windows_y_bl)), (int)windows_x_3_2, (int)(windows_y - (100 * windows_y_bl)), (int)(100 * windows_x_bl), (int)(100 * windows_y_bl));
+				settextstyle((int)(50.0 * windows_y_bl), (int)(25.0 * windows_x_bl), "");
+				setbkmode(TRANSPARENT);
+				settextcolor(YELLOW);
+				outtextxy((int)(windows_x_3_1 + (100.0 * windows_x_bl)), (int)(windows_y - (80.0 * windows_y_bl)), "½áÊøÓÎÏ·");
+				outtextxy((int)(windows_x_3_1 + (138.0 * windows_x_bl)), (int)(windows_y - (180.0 * windows_y_bl)), "ÉèÖÃ");
+				outtextxy((int)(windows_x_3_1 + (100.0 * windows_x_bl)), (int)(windows_y - (280.0 * windows_y_bl)), "¿ªÊ¼ÓÎÏ·");
+				settextcolor(GREEN);
+				outtextxy((int)(windows_x_3_1 + (125 * windows_x_bl)), (int)(windows_y_3_1 - (50.0 * windows_y_bl)), "¾®×ÖÆå");
+				settextcolor(RED);
+				settextstyle((int)(50.0 * windows_y_bl), (int)(25.0 * windows_x_bl), "");
+				outtextxy((int)(windows_x / 20.0), (int)(windows_y / 12.0 * 10.0), "by ×ÏÑæÒ«Áú");
 			}
-			else setlinecolor(BLACK);
-			fillroundrect((int)windows_x_3_1, (int)(windows_y_3_2), (int)(windows_x_3_2), (int)(windows_y - (300 * windows_y_bl)), (int)(100 * windows_x_bl), (int)(100 * windows_y_bl));
-			if (pd_cd_2_2 == 1)
-			{
-				setlinecolor(RED);
-			}
-			else setlinecolor(BLACK);
-			fillroundrect((int)windows_x_3_1, (int)(windows_y_3_2 + (100 * windows_y_bl)), (int)windows_x_3_2, (int)(windows_y - (200 * windows_y_bl)), (int)(100 * windows_x_bl), (int)(100 * windows_y_bl));
-			if (pd_cd_3_3 == 1)
-			{
-				setlinecolor(RED);
-			}
-			else setlinecolor(BLACK);
-			fillroundrect((int)windows_x_3_1, (int)(windows_y_3_2 + (200 * windows_y_bl)), (int)windows_x_3_2, (int)(windows_y - (100 * windows_y_bl)), (int)(100 * windows_x_bl), (int)(100 * windows_y_bl));
-			settextstyle((int)(50.0 * windows_y_bl), (int)(25.0 * windows_x_bl), "");
-			setbkmode(TRANSPARENT);
-			settextcolor(YELLOW);
-			outtextxy((int)(windows_x_3_1 + (100.0 * windows_x_bl)), (int)(windows_y - (80.0 * windows_y_bl)), "½áÊøÓÎÏ·");
-			outtextxy((int)(windows_x_3_1 + (138.0 * windows_x_bl)), (int)(windows_y - (180.0 * windows_y_bl)), "ÉèÖÃ");
-			outtextxy((int)(windows_x_3_1 + (100.0 * windows_x_bl)), (int)(windows_y - (280.0 * windows_y_bl)), "¿ªÊ¼ÓÎÏ·");
-			settextcolor(GREEN);
-			outtextxy((int)(windows_x_3_1 + (125 * windows_x_bl)), (int)(windows_y_3_1 - (50.0 * windows_y_bl)), "¾®×ÖÆå");
-			settextcolor(RED);
-			settextstyle((int)(50.0 * windows_y_bl), (int)(25.0 * windows_x_bl), "");
-			outtextxy((int)(windows_x / 20.0), (int)(windows_y / 12.0 * 10.0), "by ×ÏÑæÒ«Áú");
 		}
+		EndBatchDraw();
+		draw_tb = 1;
+		Sleep(10);
 	}
 }
 
@@ -97,8 +105,8 @@ void draw_3(void)
 {
 	if (draw_33 == 0)
 	{
-		setbkcolor(WHITE);
 		cleardevice();
+		setbkcolor(WHITE);
 		draw_33 = 1;
 	}
 }
@@ -152,7 +160,7 @@ void draw_sz_1_3(void)
 		cd_sz_1_1 = 1;
 		setfillstyle(BS_DIBPATTERN, NULL, &p_a);
 		fillroundrect((int)(windows_x / 12.0 * 9.5), (int)(windows_y / 12.0 * 1.7), (int)(windows_x / 12.0 * 10.0), (int)(windows_y / 12.0 * 2.3), (int)(30 * windows_x_bl), (int)(30 * windows_y_bl));
-		StopBGM();
+		BGM_sz = 0;
 	}
 	else if(cd_sz_1 == 1 && cd_sz_1_1 == 1)
 	{ 
@@ -160,7 +168,7 @@ void draw_sz_1_3(void)
 		setfillstyle(BS_SOLID); 
 		setfillcolor(RED);
 		fillroundrect((int)(windows_x / 12.0 * 9.5), (int)(windows_y / 12.0 * 1.7), (int)(windows_x / 12.0 * 10.0), (int)(windows_y / 12.0 * 2.3), (int)(30 * windows_x_bl), (int)(30 * windows_y_bl));
-		PlayBGM();
+		BGM_sz = 1;
 	}
 	if (cd_sz_2 == 0 && cd_sz_2_2 == 0)
 	{
@@ -267,4 +275,5 @@ void draw_fbl_xz(void)
 			}
 		}
 	}
+
 }

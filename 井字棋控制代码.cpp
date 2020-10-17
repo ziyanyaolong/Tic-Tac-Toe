@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<graphics.h>
+#include<thread>
 #include"qjsm.h"
 #include"struct_jgt.h"
 
@@ -7,7 +8,6 @@ int jzq(void);
 
 int jzq(void)
 {
-	unsigned short pd_lz1_2 = 0;
 	initgraph(windows_x, windows_y, EW_SHOWCONSOLE);
 	GameInit();
 	if (game_start_jz == 0)
@@ -24,24 +24,31 @@ int jzq(void)
 				start_dh(j, i);
 			}
 		}
-		graphdefaults();
 	}
-	while (1)
+	end_jzq = 1;
+	std::thread sss(draw);
+	while (end_jzq)
 	{
-		BeginBatchDraw();
-		if (pd_lz1 <= rand() % LZ_1_DRAW_MAX + LZ_1_DRAW_MIN) ++pd_lz1_2;
-		if (pd_lz1_2 > 5)
+		if (cd_2_qd == 1 || start >= 1)
 		{
-			pd_lz1 = 0;
-			pd_lz1_2 = 0;
-			p_lz1->lz1_js_x = rand() % windows_x;
-			p_lz1->lz1_js_y = rand() % windows_y;
+			lizi1_kg_pd = 0;
 		}
-		draw();
+		else lizi1_kg_pd = 1;
 		if (jz_pd == 1)
 		{
 			GameInit();
 			jz_pd = 0;
+		}
+		if (BGM_pd == 1 && BGM_sz == 1)
+		{
+			BGM_pd = 0;
+			StopBGM();
+			PlayBGM();
+		}
+		else if (BGM_pd == 0 && BGM_sz == 0)
+		{
+			BGM_pd = 1; 
+			StopBGM();
 		}
 		if (cd_2_qd == 1 && ((fbl_kg_mr = mouse_test(windows_x / 12.0 * 2.5, windows_x / 12.0 * 3.5, windows_y / 12.0 * 9.5, windows_y / 12.0 * 10.5) >= 1.0)))
 		{
@@ -51,6 +58,8 @@ int jzq(void)
 				windows_y = windows_fbl_xy_hc[1];
 				fbl_gb = 0;
 				jz_pd = 1;
+				end_jzq = 2;
+				sss.join();
 				cleardevice();
 				return 1;
 			}
@@ -70,7 +79,8 @@ int jzq(void)
 			if (mouse_cd_3()) break;
 		}
 		Sleep(20);
-		EndBatchDraw();
 	}
+	end_jzq = 0;
+	sss.join();
 	return 0;
 }

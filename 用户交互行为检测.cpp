@@ -22,7 +22,7 @@ void mouse(void)
 		}
 		if (pd_ms == 10.0)
 		{
-			if(BGM_sz == 0) StopBGM();
+			StopBGM();
 			cdqdsy();
 		}
 	}
@@ -32,6 +32,8 @@ void mouse(void)
 		{
 			cdxxsy();
 			GameInit();
+			StopBGM();
+			PlayBGM();
 			pd_ms = 0;
 			pd_ms_2 = 0;
 		}

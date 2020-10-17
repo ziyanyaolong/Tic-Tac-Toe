@@ -1,4 +1,5 @@
 #include<graphics.h>
+#include"changliang.h"
 #include"struct_jgt.h"
 IMAGE p_a, p_b, p_c, p_d, p_e, p_f, p_g;
 double pd_ms = 0;
@@ -38,12 +39,16 @@ bool jz_pd = 0;
 short fbl_kg_mr = 0;
 short windows_fbl_xy_hc[2] = { 1152, 648 };
 short windows_fbl_xy[6][2] = { {800, 600}, {1024, 768}, {1152, 648}, {1280, 1024}, {1680, 1050}, {1920, 1080} };
-bool BGM_sz = 0;
+bool BGM_sz = 1;
 int lizi_1_x_1 = 0, lizi_1_y = windows_y / 10;
 int lizi_1_x_2 = 0;
 DWORD* p_lizi_1;
 IMAGE p_lizi_2;
 bool game_start_jz = 0;
+bool BGM_pd = 1;
 unsigned short pd_lz1 = 0;
-
-struct lizi_1* p_lz1 = new(struct lizi_1);
+short end_jzq = 0;
+struct lizi_1 p_lz1[LZ_SL];
+unsigned short pd_lz1_2 = 0;
+bool lizi1_kg_pd = 0;
+bool draw_tb = 0;

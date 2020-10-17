@@ -78,5 +78,8 @@
     <ClInclude Include="struct_jgt.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="changliang.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

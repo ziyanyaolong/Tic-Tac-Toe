@@ -163,6 +163,7 @@
     <Image Include="res\zhucaidan.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="changliang.h" />
     <ClInclude Include="qjsm.h" />
     <ClInclude Include="struct_jgt.h" />
   </ItemGroup>

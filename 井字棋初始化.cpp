@@ -16,7 +16,6 @@ void GameInit(void)
 	windows_x_3_2 = (double)windows_x / 3.0 * 2.0;
 	windows_y_3_1 = (double)windows_y / 3.0;
 	windows_y_3_2 = (double)windows_y / 3.0 * 2.0;
-	PlayBGM();
 	pd_ms_2 = 0;
 	pd_ms = 0;
 	ii1 = -1;
