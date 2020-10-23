@@ -39,7 +39,10 @@
     <ClCompile Include="主控函数.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="动画与粒子函数.cpp">
+    <ClCompile Include="类构建与析构函数.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="粒子和动画%28类%29.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -75,10 +78,10 @@
     <ClInclude Include="qjsm.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="struct_jgt.h">
+    <ClInclude Include="changliang.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="changliang.h">
+    <ClInclude Include="Class1.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

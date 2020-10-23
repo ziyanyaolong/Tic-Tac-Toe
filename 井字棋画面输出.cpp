@@ -2,7 +2,7 @@
 #include<graphics.h>
 #include<easyx.h>
 #include"qjsm.h"
-#include"struct_jgt.h"
+#include"Class1.h"
 
 void draw(void);
 void draw_3(void);
@@ -12,6 +12,15 @@ void draw_sz_zt(void);
 void draw_sz_1_3(void);
 void draw_fbl(void);
 void draw_fbl_xz(void);
+void start_dh(int, int);
+
+//Æô¶¯¼ÓÔØ»æÍ¼º¯Êý
+void start_dh(int x, int y)
+{
+	putpixel(x, y, BLUE);
+	setfillcolor(getpixel(x, y));
+	solidrectangle(x, y, x + (windows_x / 10), y + (windows_y / 10));
+}
 
 void draw(void)
 {
@@ -19,7 +28,7 @@ void draw(void)
 	{
 		draw_tb = 0;
 		BeginBatchDraw();
-		lizi_1();
+		li_zi_1_create_1.lizi_1(li_zi_1_create_1);
 		if (cd_2_qd == 1)
 		{
 			if (cd_sz_pd == 0)
@@ -51,7 +60,7 @@ void draw(void)
 			if (pd_ms >= 1.0)
 			{
 				start = 1;
-				if (lizi1_kg_pd == 0)
+				if ((li_zi_1_create_1.lizi1_kg(li_zi_1_create_1)) == 0)
 				{
 					setfillcolor(RED);
 					solidrectangle(0, 0, (int)(40.0 * windows_x_bl), (int)(40.0 * windows_y_bl));

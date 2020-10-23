@@ -1,15 +1,20 @@
 #include<stdio.h>
 #include<graphics.h>
 #include<thread>
+#include"Class1.h"
 #include"qjsm.h"
-#include"struct_jgt.h"
 
 int jzq(void);
 
 int jzq(void)
 {
-	initgraph(windows_x, windows_y, EW_SHOWCONSOLE);
+	//设置随机数种子
+	srand(time(0));
+	//initgraph(windows_x, windows_y, EW_SHOWCONSOLE);
+	initgraph(windows_x, windows_y);
+	//初始化
 	GameInit();
+	//启动加载绘图
 	if (game_start_jz == 0)
 	{
 		game_start_jz = 1;
@@ -24,16 +29,18 @@ int jzq(void)
 				start_dh(j, i);
 			}
 		}
+		setfillstyle(BS_SOLID);
 	}
 	end_jzq = 1;
+	//启用多线程运行绘图操作
 	std::thread sss(draw);
 	while (end_jzq)
 	{
 		if (cd_2_qd == 1 || start >= 1)
 		{
-			lizi1_kg_pd = 0;
+			li_zi_1_create_1.lizi1_kg(false, li_zi_1_create_1);
 		}
-		else lizi1_kg_pd = 1;
+		else li_zi_1_create_1.lizi1_kg(true, li_zi_1_create_1);
 		if (jz_pd == 1)
 		{
 			GameInit();
@@ -52,6 +59,7 @@ int jzq(void)
 		}
 		if (cd_2_qd == 1 && ((fbl_kg_mr = mouse_test(windows_x / 12.0 * 2.5, windows_x / 12.0 * 3.5, windows_y / 12.0 * 9.5, windows_y / 12.0 * 10.5) >= 1.0)))
 		{
+			//分辨率调节
 			if (((windows_fbl_xy_hc[0] != windows_x) || (windows_fbl_xy_hc[1] != windows_y)) && (fbl_gb == 1))
 			{
 				windows_x = windows_fbl_xy_hc[0];

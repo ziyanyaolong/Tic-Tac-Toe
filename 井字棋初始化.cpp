@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<graphics.h>
+#include"Class1.h"
 #include"qjsm.h"
 
 void GameInit(void);
@@ -10,6 +11,7 @@ void GameInit(void)
 	BeginBatchDraw();
 	cleardevice();
 	graphdefaults();
+	li_zi_1_create_1.rest(li_zi_1_create_1);
 	windows_x_bl = (double)windows_x / 1152;
 	windows_y_bl = (double)windows_y / 648;
 	windows_x_3_1 = (double)windows_x / 3.0;
@@ -44,7 +46,6 @@ void GameInit(void)
 	cd_2_qd = 0;
 	cd_sz_pd = 0;
 	pj_zcpd = 0;
-	pd_lz1 = 0;
 	setorigin(0, 0);
 	loadimage(&p_a, "./res/zhucaidan.jpg", (int)windows_x, (int)windows_y);
 	loadimage(&p_b, "./res/XXX.png", (int)windows_x_3_1, (int)windows_y_3_1);

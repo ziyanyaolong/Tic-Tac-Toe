@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<graphics.h>
-#include <Windows.h>
+#include<Windows.h>
+#include"Class1.h"
 #include"qjsm.h"
 
 double mouse_test(double, double, double, double);
@@ -10,6 +11,7 @@ int ht_xo(int a);
 int win(void);
 void win_2(int i);
 
+//绘制网格
 void draw_get(void)
 {
 	lineto(0, 0);
@@ -20,6 +22,7 @@ void draw_get(void)
 	line((int)windows_x_3_2, 0, (int)windows_x_3_2, (int)windows_x);
 }
 
+//鼠标区域检测函数
 double mouse_test(double x1, double x2, double y1, double y2)
 {
 	POINT gm;
@@ -58,6 +61,7 @@ double mouse_test(double x1, double x2, double y1, double y2)
 	return 0;
 }
 
+//xo绘图
 int ht_xo(int a)
 {
 	for (int i = 0; i <= 2; ++i)
@@ -84,6 +88,7 @@ int ht_xo(int a)
 	return a;
 }
 
+//胜利判定
 int win(void)
 {
 	if (shuzu_2[0][0] == 1 && shuzu[0][0] == 1)
@@ -177,6 +182,8 @@ int win(void)
 	if (pj_zcpd == 1) return 3;
 	return 0;
 }
+
+//胜利成功判定
 void win_2(int i)
 {
 	if (i == 3)
@@ -184,23 +191,26 @@ void win_2(int i)
 		settextstyle((int)(300.0 * windows_y_bl), (int)(200.0 * windows_x_bl), "");
 		outtextxy((int)(windows_x / 12.0 * 1.5), (int)(windows_y / 12.0 * 2.5), "平局！");
 		FlushBatchDraw();
-		while (mouse_test(0, windows_x, 0, windows_y) <= 1.0) Sleep(5);
+		while (mouse_test(0, windows_x, 0, windows_y) <= 1.0) Sleep(10);
 		GameInit();
+		Sleep(10);
 	}
 	if (i == 1)
 	{
 		settextstyle((int)(200.0 * windows_y_bl), (int)(100.0 * windows_x_bl), "");
 		outtextxy((int)(windows_x / 12.0 * 1.5), (int)(windows_y / 12.0 * 3.5), "X方胜利！");
 		FlushBatchDraw();
-		while (mouse_test(0, windows_x, 0, windows_y) <= 1.0) Sleep(5);
+		while (mouse_test(0, windows_x, 0, windows_y) <= 1.0) Sleep(10);
 		GameInit();
+		Sleep(10);
 	}
 	if(i == 2)
 	{
 		settextstyle((int)(200.0 * windows_y_bl), (int)(100.0 * windows_x_bl), "");
 		outtextxy((int)(windows_x / 12.0 * 1.5), (int)(windows_y / 12.0 * 3.5), "O方胜利！");
 		FlushBatchDraw();
-		while (mouse_test(0, windows_x, 0, windows_y) <= 1.0) Sleep(5);
+		while (mouse_test(0, windows_x, 0, windows_y) <= 1.0) Sleep(10);
 		GameInit();
+		Sleep(10);
 	}
 }
