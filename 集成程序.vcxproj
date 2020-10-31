@@ -148,8 +148,8 @@
     <ClCompile Include="井字棋程序运行.cpp" />
     <ClCompile Include="全局变量.cpp" />
     <ClCompile Include="用户交互行为检测.cpp" />
+    <ClCompile Include="类函数.cpp" />
     <ClCompile Include="类构建与析构函数.cpp" />
-    <ClCompile Include="粒子和动画%28类%29.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="res\777.mp3" />

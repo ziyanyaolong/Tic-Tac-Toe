@@ -1,115 +1,105 @@
 #include<stdio.h>
 #include<graphics.h>
 #include<easyx.h>
+#include<iostream>
+#include"Class1.h"
 #include"qjsm.h"
 
-void mouse(void);
-void mouse_cd_2(void);
-void mouse_cd_sz_1_3(void);
-int mouse_cd_3(void);
-void mouse_fbl(void);
+void mouse_lei();
+void mouse_cd_sz_fbl();
+void mouse_zd_fbl_cz();
 
-void mouse(void)
+//菜单界面检测
+void mouse_lei()
 {
-	if (pd_ms <= 0 && start <= 0)
+	if (!cai_dan_2.sz_back(0, 1) && !cai_dan_1.sz_back(0, 1))
 	{
-		pd_ms = mouse_test(windows_x_3_1, windows_x_3_2, windows_y - (300.0 * windows_y_bl), windows_y_3_2);
-		if (pd_ms == -11.0) pd_cd_1 = 0;
-		if (pd_ms == -10.0 && pd_cd_1 == 0)
+		if (cai_dan_1.sz_assignment_int(0, cai_dan_1.mtest(2, 0)) == 1)
 		{
-			cdxxsy();
-			pd_cd_1 = 1;
+			cai_dan_1.sz_assignment(0, 1, true);
 		}
-		if (pd_ms == 10.0)
+		if (cai_dan_2.sz_assignment_int(0, cai_dan_2.mtest(3, 0)) == 1)
 		{
-			StopBGM();
-			cdqdsy();
+			cai_dan_2.sz_assignment(0, 1, true);
+		}
+		if (cai_dan_3.sz_assignment_int(0, cai_dan_3.mtest(1, 0)) == 1)
+		{
+			cai_dan_3.sz_assignment(0, 1, true);
 		}
 	}
-	if (pd_ms >= 2.0)
+	else if (cai_dan_2.sz_back(0, 1))
 	{
-		if (pd_ms_2 = mouse_test(0, 40.0 * windows_x_bl, 0, 40.0 * windows_y_bl) >= 1.0)
+		if (cai_dan_2_qd.sz_assignment_int(0, cai_dan_2_qd.mtest(0, 0)) == 1)
 		{
-			cdxxsy();
+			cai_dan_2_qd.sz_assignment(0, 1, true);
+		}
+		if (cai_dan_2_1.sz_assignment_int(0, cai_dan_2_1.mtest(1, 0)) == 1 && !cai_dan_2_1.sz_back(0, 0))
+		{
+			cai_dan_2_1.sz_assignment(0, 0, true);
+			cai_dan_2_1.sz_assignment(0, 1, true);
+			cai_dan_2.sz_assignment(2, 0, true);
+		}
+		else if (cai_dan_2_1.sz_back_int(0) == 1 && cai_dan_2_1.sz_back(0, 0))
+		{
+			std::cout << cai_dan_2_1.sz_back_int(0) << std::endl;
+			cai_dan_2_1.sz_assignment(0, 0, false);
+			cai_dan_2_1.sz_assignment(0, 1, false);
+			cai_dan_2.sz_assignment(2, 0, true);
+		}
+		if (cai_dan_2_2.sz_assignment_int(0, cai_dan_2_2.mtest(1, 0)) == 1 && !cai_dan_2_2.sz_back(0, 0))
+		{
+			cai_dan_2_2.sz_assignment(0, 0, true);
+			cai_dan_2_2.sz_assignment(0, 1, true);
+			cai_dan_2.sz_assignment(2, 0, true);
+		}
+		else if (cai_dan_2_2.sz_back_int(0) == 1 && cai_dan_2_2.sz_back(0, 0))
+		{
+			cai_dan_2_2.sz_assignment(0, 0, false);
+			cai_dan_2_2.sz_assignment(0, 1, false);
+			cai_dan_2.sz_assignment(2, 0, true);
+		}
+		if (cai_dan_2_3.sz_assignment_int(0, cai_dan_2_3.mtest(1, 0)) == 1 && !cai_dan_2_3.sz_back(0, 0))
+		{
+			cai_dan_2_3.sz_assignment(0, 0, true);
+			cai_dan_2_3.sz_assignment(0, 1, true);
+			cai_dan_2.sz_assignment(2, 0, true);
+		}
+		else if (cai_dan_2_3.sz_back_int(0) == 1 && cai_dan_2_3.sz_back(0, 0))
+		{
+			cai_dan_2_3.sz_assignment(0, 0, false);
+			cai_dan_2_3.sz_assignment(0, 1, false);
+			cai_dan_2.sz_assignment(2, 0, true);
+		}
+	}
+	else if (cai_dan_1.sz_back(0, 1))
+	{
+		if (return_cd.mtest() == 1)
+		{
 			GameInit();
-			StopBGM();
-			PlayBGM();
-			pd_ms = 0;
-			pd_ms_2 = 0;
+			cai_dan_1.sz_assignment(0, 1, false);
 		}
 	}
+
 }
-int mouse_cd_3(void)
+//分辨率检测
+void mouse_cd_sz_fbl()
 {
-	if ((pd_cd_3 = (int)(mouse_test(windows_x_3_1, windows_x_3_2, (windows_y - (100 * windows_y_bl)), (windows_y_3_2 + (200 * windows_y_bl))))) && start <= 0)
+	for (int i= 0; i < 6; i++)
 	{
-		if (pd_cd_3 >= 1) return 1;
-		if (pd_cd_3 == -10 && pd_cd_3_3 == 0)
+		if (cai_dan_2_fbl[i].mtest(0, 0) == 1)
 		{
-			pd_cd_3_3 = 1;
-			cdxxsy();
-		}
-		if (pd_cd_3 == -11) pd_cd_3_3 = 0;
-	}
-	return 0;
-}
-void mouse_cd_2(void)
-{
-	if ((pd_cd_2 = (int)(mouse_test(windows_x_3_1, windows_x_3_2, (windows_y - (200 * windows_y_bl)), (windows_y_3_2 + (100 * windows_y_bl))))) && start <= 0)
-	{
-		if (pd_cd_2 >= 1 && cd_2_qd == 0) cd_2_qd = 1;
-		if (pd_cd_2 == -10 && pd_cd_2_2 == 0)
-		{
-			pd_cd_2_2 = 1;
-			cdxxsy();
-		}
-		if (pd_cd_2 == -11) pd_cd_2_2 = 0;
-	}
-}
-void mouse_cd_sz_1_3(void)
-{
-	if (cd_sz_1 == 1)
-	{
-		if (mouse_test((int)(windows_x / 12.0 * 9.5), (int)(windows_x / 12.0 * 10.0), (int)(windows_y / 12.0 * 1.7), (int)(windows_y / 12.0 * 2.3)) >= 1.0) cd_sz_1 = 0;
-	}
-	if (cd_sz_1 == 0)
-	{
-		if (mouse_test((int)(windows_x / 12.0 * 9.5), (int)(windows_x / 12.0 * 10.0), (int)(windows_y / 12.0 * 1.7), (int)(windows_y / 12.0 * 2.3)) >= 1.0) cd_sz_1 = 1;
-	}
-	if (cd_sz_2 == 1)
-	{
-		if (mouse_test((int)(windows_x / 12.0 * 9.5), (int)(windows_x / 12.0 * 10.0), (int)(windows_y / 12.0 * 2.7), (int)(windows_y / 12.0 * 3.3)) >= 1.0) cd_sz_2 = 0;
-	}
-	if (cd_sz_2 == 0)
-	{
-		if (mouse_test((int)(windows_x / 12.0 * 9.5), (int)(windows_x / 12.0 * 10.0), (int)(windows_y / 12.0 * 2.7), (int)(windows_y / 12.0 * 3.3)) >= 1.0) cd_sz_2 = 1;
-	}
-	if (cd_sz_3 == 1)
-	{
-		if (mouse_test((int)(windows_x / 12.0 * 9.5), (int)(windows_x / 12.0 * 10.0), (int)(windows_y / 12.0 * 3.7), (int)(windows_y / 12.0 * 4.3)) >= 1.0) cd_sz_3 = 0;
-	}
-	if (cd_sz_3 == 0)
-	{
-		if (mouse_test((int)(windows_x / 12.0 * 9.5), (int)(windows_x / 12.0 * 10.0), (int)(windows_y / 12.0 * 3.7), (int)(windows_y / 12.0 * 4.3)) >= 1.0) cd_sz_3 = 1;
-	}
-}
-void mouse_fbl(void)
-{
-	for (int i = 0; i < 3; ++i)
-	{
-		for (int j = 0; j < 2; ++j)
-		{
-			if (mouse_test(windows_x / 12.0 * ((j * 4.0) + 4.7), (windows_x / 12.0 * ((j * 4.0) + 5.3)), (windows_y / 12.0 * (i + 4.7)), (windows_y / 12.0 * (i + 5.3))) >= 1.0)
-			{
-				if (shuzu_fbl_1[i][j] == 0) 
-				{
-					fbl_cz();
-					shuzu_fbl_1[i][j] = 1;
-					shuzu_fbl_2[i][j] = 1;
-					fbl_gb = 1;
-					break;
-				}
-			}
+			mouse_zd_fbl_cz();
+			cai_dan_2_fbl[i].sz_assignment(0, 1, true);
+			cai_dan_2.sz_assignment(2, 0, true);
 		}
 	}
+}
+//分辨率重置
+void mouse_zd_fbl_cz()
+{
+	for (int j = 0; j < 6; ++j)
+	{
+		cai_dan_2_fbl[j].sz_assignment(0, 1, false);
+	}
+	draw_fbl_xz();
 }

@@ -4,24 +4,25 @@
 #include"qjsm.h"
 
 void GameInit(void);
-void fbl_cz(void);
 
 void GameInit(void)
 {
 	BeginBatchDraw();
+	cai_dan_1.sz_assignment(0, 1, false);
+	cai_dan_1.sz_assignment(3, 0, false);
+	xo_.sz_assignment(0, 0, false);
+	gm.x = 0;
+	gm.y = 0;
 	cleardevice();
 	graphdefaults();
-	li_zi_1_create_1.rest(li_zi_1_create_1);
-	windows_x_bl = (double)windows_x / 1152;
-	windows_y_bl = (double)windows_y / 648;
+	li_zi_1_create_1.rest();
+	windows_x_bl = (double)windows_x / 1152.0;
+	windows_y_bl = (double)windows_y / 648.0;
 	windows_x_3_1 = (double)windows_x / 3.0;
 	windows_x_3_2 = (double)windows_x / 3.0 * 2.0;
 	windows_y_3_1 = (double)windows_y / 3.0;
 	windows_y_3_2 = (double)windows_y / 3.0 * 2.0;
-	pd_ms_2 = 0;
-	pd_ms = 0;
-	ii1 = -1;
-	ii2 = 1;
+	xo = 0;
 	for (int i = 0; i < 3; i++)
 	{
 		for (int j = 0; j < 3; j++)
@@ -36,15 +37,6 @@ void GameInit(void)
 			shuzu_2[i][j] = 0;
 		}
 	}
-	start = 0;
-	draw_33 = 0;
-	pd_cd_1 = 0;
-	pd_cd_2 = 0;
-	pd_cd_2_2 = 0;
-	pd_cd_3_3 = 0;
-	pd_cd_3 = 0;
-	cd_2_qd = 0;
-	cd_sz_pd = 0;
 	pj_zcpd = 0;
 	setorigin(0, 0);
 	loadimage(&p_a, "./res/zhucaidan.jpg", (int)windows_x, (int)windows_y);
@@ -61,10 +53,12 @@ void GameInit(void)
 	setbkcolor(WHITE);
 	cleardevice();
 	putimage(0, 0, &p_a);
+	StopBGM();
+	PlayBGM();
 	EndBatchDraw();
 }
 
-void fbl_cz(void)
+/*void fbl_cz(void)
 {
 	for (int i = 0; i < 3; ++i)
 	{
@@ -73,4 +67,4 @@ void fbl_cz(void)
 			shuzu_fbl_1[i][j] = 0;
 		}
 	}
-}
+}*/

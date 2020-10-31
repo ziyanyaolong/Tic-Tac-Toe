@@ -10,8 +10,10 @@ int jzq(void)
 {
 	//设置随机数种子
 	srand(time(0));
-	//initgraph(windows_x, windows_y, EW_SHOWCONSOLE);
-	initgraph(windows_x, windows_y);
+	initgraph(windows_x, windows_y, EW_SHOWCONSOLE);
+	cc = NULL;
+	cc = GetHWnd();
+	//initgraph(windows_x, windows_y);
 	//初始化
 	GameInit();
 	//启动加载绘图
@@ -32,20 +34,26 @@ int jzq(void)
 		setfillstyle(BS_SOLID);
 	}
 	end_jzq = 1;
+	int jz_pd = 1;
 	//启用多线程运行绘图操作
 	std::thread sss(draw);
 	while (end_jzq)
 	{
-		if (cd_2_qd == 1 || start >= 1)
+		GetCursorPos(&gm);
+		ScreenToClient(cc, &gm);
+		mouse_lei();
+		if (cai_dan_2.sz_back(0, 1) || cai_dan_1.sz_back(0, 1))
 		{
-			li_zi_1_create_1.lizi1_kg(false, li_zi_1_create_1);
+			li_zi_1_create_1.lizi1_kg(false);
 		}
-		else li_zi_1_create_1.lizi1_kg(true, li_zi_1_create_1);
+		else li_zi_1_create_1.lizi1_kg(true);
 		if (jz_pd == 1)
 		{
+			//第一次设置
 			GameInit();
 			jz_pd = 0;
 		}
+		//BGM配置
 		if (BGM_pd == 1 && BGM_sz == 1)
 		{
 			BGM_pd = 0;
@@ -54,39 +62,84 @@ int jzq(void)
 		}
 		else if (BGM_pd == 0 && BGM_sz == 0)
 		{
-			BGM_pd = 1; 
+			BGM_pd = 1;
 			StopBGM();
 		}
-		if (cd_2_qd == 1 && ((fbl_kg_mr = mouse_test(windows_x / 12.0 * 2.5, windows_x / 12.0 * 3.5, windows_y / 12.0 * 9.5, windows_y / 12.0 * 10.5) >= 1.0)))
+		//菜单界面
+		if (!cai_dan_2.sz_back(0, 1) && !cai_dan_1.sz_back(0, 1))
 		{
-			//分辨率调节
-			if (((windows_fbl_xy_hc[0] != windows_x) || (windows_fbl_xy_hc[1] != windows_y)) && (fbl_gb == 1))
+			if (cai_dan_3.sz_back_int(0) == 1)
 			{
-				windows_x = windows_fbl_xy_hc[0];
-				windows_y = windows_fbl_xy_hc[1];
-				fbl_gb = 0;
-				jz_pd = 1;
-				end_jzq = 2;
+				end_jzq = 0;
 				sss.join();
-				cleardevice();
-				return 1;
+				jz_pd = 1;
+				return 0;
 			}
+			if (cai_dan_1.sz_back_int(0) == -1 && !cai_dan_1.sz_back(0, 0))
+			{
+				cai_dan_1.sz_assignment(0, 0, true);
+				cdxxsy();
+			}
+			else if (cai_dan_1.sz_back_int(0) == -2)
+			{
+				cai_dan_1.sz_assignment(0, 0, false);
+			}
+			if (cai_dan_2.sz_back_int(0) == -1 && !cai_dan_2.sz_back(0, 0))
+			{
+				cai_dan_2.sz_assignment(0, 0, true);
+				cdxxsy();
+			}
+			else if (cai_dan_2.sz_back_int(0) == -2)
+			{
+				cai_dan_2.sz_assignment(0, 0, false);
+			}
+			if (cai_dan_3.sz_back_int(0) == -1 && !cai_dan_3.sz_back(0, 0))
+			{
+				cai_dan_3.sz_assignment(0, 0, true);
+				cdxxsy();
+			}
+			else if (cai_dan_3.sz_back_int(0) == -2)
+			{
+				cai_dan_3.sz_assignment(0, 0, false);
+			}
+		}
+		if (((windows_x != windows_fbl_xy_hc[0]) || (windows_y != windows_fbl_xy_hc[1])) && (cai_dan_2_qd.sz_back(0, 1) == 1))
+		{
+			cai_dan_2_qd.sz_assignment(0, 1, false);
+			cai_dan_2.sz_assignment(1, 1, false);
+			cai_dan_2.sz_assignment(0, 1, false);
+			GameInit();
+			windows_x = windows_fbl_xy_hc[0];
+			windows_y = windows_fbl_xy_hc[1];
+			end_jzq = 0;
+			sss.join();
+			return 1;
+		}
+		if (cai_dan_2.sz_back(0, 1) && cai_dan_2_qd.sz_back(0, 1) == 1)
+		{
+			cai_dan_2_qd.sz_assignment(0, 1, false);
+			cai_dan_2.sz_assignment(1, 1, false);
+			cai_dan_2.sz_assignment(0, 1, false);
 			GameInit();
 		}
-		if (cd_2_qd == 0)
+		//胜利判定
+		if (cai_dan_1.sz_back(0, 1))
 		{
-			if (start <= 0) mouse_cd_2();
-			mouse();
-			if (start >= 1)
+			BeginBatchDraw();
+			if (!cai_dan_1.sz_back(3, 0))
 			{
-				ii2 = ht_xo(ii2);
-				ii1 = win();
-				win_2(ii1);
-				draw_2();
+				StopBGM();
+				cdqdsy();
+				cai_dan_1.sz_assignment(3, 0, true);
+				cleardevice();
 			}
-			if (mouse_cd_3()) break;
+			draw_get();
+			ht_xo(a, b);
+			win_2(win());
+			draw_2();
+			EndBatchDraw();
 		}
-		Sleep(20);
+		Sleep(10);
 	}
 	end_jzq = 0;
 	sss.join();

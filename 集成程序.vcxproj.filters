@@ -42,7 +42,7 @@
     <ClCompile Include="类构建与析构函数.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="粒子和动画%28类%29.cpp">
+    <ClCompile Include="类函数.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
